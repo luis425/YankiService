@@ -1,0 +1,8 @@
+package com.bootcamp.Yanki.response;
+
+public class DebitCardResponse {
+	
+	private String numberDebitCard;
+	
+	private BankAccounts bankAccounts;
+}

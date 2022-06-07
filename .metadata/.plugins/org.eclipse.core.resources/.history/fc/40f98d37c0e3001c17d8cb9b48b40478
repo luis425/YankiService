@@ -1,0 +1,5 @@
+package com.bootcamp.Yanki.Consumer;
+
+public class KafkaConsumer {
+
+}

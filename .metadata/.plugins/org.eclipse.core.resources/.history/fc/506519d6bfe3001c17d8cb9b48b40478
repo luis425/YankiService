@@ -1,0 +1,6 @@
+package com.bootcamp.Yanki.config;
+
+@Configuration
+public class RedisConfiguration {
+
+}

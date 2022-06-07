@@ -1,0 +1,23 @@
+package com.bootcamp.Yanki.model;
+
+
+@Document(collection = "assurances")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class YankiAccount {
+	
+	private String id;  
+	private boolean yunkiAccountstatus;
+	private Long amount; 
+	private boolean yunkirelationBankFlag;
+	private String documentType;
+	private String numberDocument;
+	private String phoneNumber;
+	private String imei;
+	private String email;
+	private String numberAccount;
+	
+}

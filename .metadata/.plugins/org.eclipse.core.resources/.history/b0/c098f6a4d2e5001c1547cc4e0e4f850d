@@ -1,0 +1,13 @@
+package com.bootcamp.Yanki.response;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class DebitCardResponse {
+	
+	private String numberDebitCard;
+	
+	private BankAccounts bankAccounts;
+}

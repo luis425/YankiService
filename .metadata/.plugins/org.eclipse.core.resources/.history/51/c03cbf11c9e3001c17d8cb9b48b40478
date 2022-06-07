@@ -1,0 +1,5 @@
+package com.bootcamp.Yanki.producer;
+
+public class KafkaProducer {
+
+}

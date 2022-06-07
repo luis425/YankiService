@@ -1,0 +1,12 @@
+package com.bootcamp.Yanki.Service;
+
+import java.util.List;
+
+import com.bootcamp.Yanki.redis.Model.BankAccountCache;
+
+public interface BankAccountService {
+
+	List<BankAccountCache> getAll();
+	String storageAssuranceList(List<AssuranceCache> assuranceCacheList);
+	
+}

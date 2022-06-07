@@ -1,0 +1,15 @@
+package com.bootcamp.Yanki.model;
+
+public class Bank {
+	
+	private String id;
+	 
+	private String code;
+	
+	private String bankName;
+	
+	private String directionMain;
+	
+	
+}
+

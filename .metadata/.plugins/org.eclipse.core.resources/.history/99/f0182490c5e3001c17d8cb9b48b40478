@@ -1,0 +1,22 @@
+server:
+  port: 8086
+kafka:
+  subscribed-topic:
+    name: yanki-request
+  topic-to-publish:
+    name: yanki-response
+spring:
+  kafka:
+    bootstrap-server: localhost:9092
+    consumer:
+      group-id: transaction-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+bank-account-api:
+  base-url: http://localhost:8082

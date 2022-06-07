@@ -1,0 +1,15 @@
+package com.bootcamp.Yanki.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bootcamp.Yanki.repository.YankiTransferRepository;
+
+public class TransferYankiService {
+
+	@Autowired
+	YankiTransferRepository yankiTransferRepository;
+	
+	public Mono<MovementsBankAccounts> createMovementsBankAccounts(MovementsBankAccounts bankAccounts) {
+		return movementsBankAccountsRepository.save(bankAccounts);
+	}
+}

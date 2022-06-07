@@ -1,0 +1,38 @@
+package com.bootcamp.Yanki.api.client;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import com.bootcamp.Yanki.config.BankAccountApiProperties;
+import com.bootcamp.Yanki.response.BankAccountResponse;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
+@RequiredArgsConstructor
+public class BankAccountApiClient {
+
+	private final WebClient webClient;
+	private final BankAccountApiProperties bankAccountApiProperties;
+	
+	public List<BankAccountResponse> getBankAccountbyNumberAccount(String numberAccount) throws InterruptedException {
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		List<BankAccountResponse> result = new ArrayList<>();
+		webClient.get().uri(bankAccountApiProperties.getBaseUrl() + "/bankAccounts/BankAccountResponse/".concat(numberAccount))
+				.accept(MediaType.TEXT_EVENT_STREAM).retrieve().bodyToFlux(BankAccountResponse.class)
+				.publishOn(Schedulers.fromExecutor(executor))
+				.subscribe(assuranceResponse -> result.add(assuranceResponse));
+
+		executor.awaitTermination(1, TimeUnit.SECONDS);
+		log.info("Assurance list " + result);
+		return result;
+	}
+}

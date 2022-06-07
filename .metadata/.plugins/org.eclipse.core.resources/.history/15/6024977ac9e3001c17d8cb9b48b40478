@@ -1,0 +1,17 @@
+package com.bootcamp.Yanki.web.expose;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class YankiController {
+
+	@Autowired
+	private KafkaProducer kafkaProducer;
+
+	@PostMapping("/customer/transaction")
+	public ResponseEntity<String> requestTransaction(@RequestBody String transaction) {
+		kafkaProducer.publishMessage(transaction);
+		return ResponseEntity.ok(transaction);
+	}
+
+}

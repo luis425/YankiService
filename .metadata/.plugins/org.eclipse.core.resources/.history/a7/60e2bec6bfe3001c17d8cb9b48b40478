@@ -1,0 +1,5 @@
+package com.bootcamp.Yanki.config;
+
+public final class Util {
+	public static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+}

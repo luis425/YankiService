@@ -1,0 +1,18 @@
+package com.bootcamp.Yanki.model;
+
+import org.springframework.data.annotation.Id;
+
+public class Transfer {
+	
+	@Id
+	private String id;   
+	
+	private boolean transferstatus;
+	
+	private Double amount;   
+	
+	private String phoneNumberorigen;
+	
+	private String phoneNumberdestination;
+	
+}

@@ -1,0 +1,111 @@
+package com.bootcamp.Yanki.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.bootcamp.Yanki.Service.TransferYankiService;
+import com.bootcamp.Yanki.model.Transfer;
+import com.bootcamp.Yanki.model.YankiAccount;
+
+import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@Slf4j
+@RestController
+@RequestMapping("/yankiTransfer")
+public class TransferController {
+
+	@Autowired
+	TransferYankiService transferYankiService;
+	
+	@PostMapping(value = "/transfer")
+	public Mono<Transfer> createYankiTransfer(@RequestBody Transfer yankiTransfer) {
+
+		//boolean validationvalue = this.validationRegisterRequest(movementsdebitCard); 
+		boolean validationvalue ;
+		if (validationvalue) {
+
+			try {
+
+				Flux<YankiAccount> yankiAccount = this.transferYankiService.getAccountYankibyphoneNumber(yankiTransfer.getPhoneNumberorigen());
+
+				List<YankiAccount> listyankiOrigen = new ArrayList<>();
+
+				yankiAccount.collectList().subscribe(listyankiOrigen::addAll);
+				
+				Flux<YankiAccount> yankiAccountDesti = this.transferYankiService.getAccountYankibyphoneNumber(yankiTransfer.getPhoneNumberorigen());
+
+				List<YankiAccount> listyankiDestinatario = new ArrayList<>();
+
+				yankiAccountDesti.collectList().subscribe(listyankiDestinatario::addAll);
+				
+				long temporizador = (7 * 1000);
+
+				Thread.sleep(temporizador);
+
+				codigoValidatorMovementsBankAccounts = this.validardor(list1, movementsdebitCard);
+
+				log.info("Verificar Numero de Cuenta -->" + codigoValidatorMovementsBankAccounts);
+				
+				if(listDebitcard.isEmpty()) {
+					return Mono.error(new ResponseStatusException(HttpStatus.PRECONDITION_FAILED, "Debit Card no existe."));
+				}
+
+				if (codigoValidatorMovementsBankAccounts.equals("")) {
+
+					return Mono.error(new ResponseStatusException(HttpStatus.PRECONDITION_FAILED,Utils.numberAccountnoexiste));
+
+				} else {
+
+					 
+
+						// Bank Account 
+						Double descuento = list1.get(list1.size() - 1).getAvailableBalanceAccount() - movementsdebitCard.getAmount();
+
+						list1.get(list1.size() - 1).setAvailableBalanceAccount(descuento);
+
+						BankAccounts updateBankAccounts = this.validationUpdateBankAccountsRequest(list1,movementsdebitCard.getDebitCard().getBankAccounts().get(0));
+						
+						this.bankAccountsService.createBankAccountsRepository(updateBankAccounts).subscribe();
+						
+						// Debit Card Monto
+						
+						//listDebitcard.get(0).getBankAccounts().get(0).setAvailableBalanceAccount(descuento);
+						//listDebitcard.get(0).getBankAccounts().get(0).setStatusAccount(true);
+						//this.debitCardService.createDebitCard(listDebitcard.get(0)).subscribe();
+						
+						// Registro del Movimiento 
+						
+						movementsdebitCard.setId(UUID.randomUUID().toString());
+
+						return this.movementsDebitCardService.createMovementDebitCard(movementsdebitCard);
+						
+					 
+				}
+
+			} catch (InterruptedException e) {
+				log.info(e.toString());
+				Thread.currentThread().interrupt();
+				return Mono.error(new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage()));
+			}
+
+
+		} else {
+			return Mono.error(new ResponseStatusException(HttpStatus.BAD_REQUEST));
+		}
+	}
+	
+	
+	
+	
+	
+}

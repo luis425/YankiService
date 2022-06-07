@@ -1,0 +1,8 @@
+package com.bootcamp.Yanki.Service;
+
+public interface BankAccountService {
+
+	List<Ba> getAll();
+	String storageAssuranceList(List<AssuranceCache> assuranceCacheList);
+	
+}

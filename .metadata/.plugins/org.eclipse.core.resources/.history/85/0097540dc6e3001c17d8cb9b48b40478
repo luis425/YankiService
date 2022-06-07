@@ -1,0 +1,12 @@
+package com.bootcamp.Yanki.redis.Model;
+
+@RedisHash("BankAccount")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
+public class BankAccountCache {
+
+}

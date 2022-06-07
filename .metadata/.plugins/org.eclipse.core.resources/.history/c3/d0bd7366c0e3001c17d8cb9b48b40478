@@ -1,0 +1,6 @@
+package com.bootcamp.Yanki.Service;
+
+public class YankiService {
+	 String processTransaction(Transaction transaction) throws InterruptedException;
+	}
+

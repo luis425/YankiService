@@ -1,0 +1,8 @@
+package com.bootcamp.Yanki.producer;
+
+@Component
+@RequiredArgsConstructor
+@Slf4j
+public class KafkaProducer {
+
+}

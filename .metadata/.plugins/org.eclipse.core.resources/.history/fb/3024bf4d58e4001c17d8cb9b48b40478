@@ -1,0 +1,10 @@
+package com.bootcamp.Yanki.repository;
+ 
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.bootcamp.Yanki.model.Yunki;
+ 
+@Repository
+public interface YankiRepository extends ReactiveCrudRepository<Yunki, String> {
+}

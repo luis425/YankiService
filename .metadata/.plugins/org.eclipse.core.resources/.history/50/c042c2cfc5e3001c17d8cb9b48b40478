@@ -1,0 +1,5 @@
+package com.bootcamp.Yanki.redis.Model;
+
+public class BankAccountCache {
+
+}

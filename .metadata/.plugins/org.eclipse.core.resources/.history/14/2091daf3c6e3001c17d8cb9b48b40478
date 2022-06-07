@@ -1,0 +1,8 @@
+package com.bootcamp.Yanki.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BankAccountRepository extends CrudRepository<AssuranceCache, String> {
+
+}

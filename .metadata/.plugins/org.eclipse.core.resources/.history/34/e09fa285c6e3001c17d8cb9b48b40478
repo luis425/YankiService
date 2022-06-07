@@ -1,0 +1,10 @@
+package com.bootcamp.Yanki.response;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class BankAccountResponse {
+
+}

@@ -1,0 +1,26 @@
+package com.bootcamp.Yanki.model;
+
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
+@Builder
+public class Yunki implements Serializable {
+
+	private String id;
+	private String transactionType;
+	private String bankAccountNumber;
+	private String token;
+	private boolean bankAssurance;
+	private Long amount; 
+}

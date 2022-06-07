@@ -1,0 +1,16 @@
+package com.bootcamp.Yanki.model;
+
+public class TypeBankAccounts { 
+	
+	private Integer id;
+	 
+	private String description;
+	
+	// Manejo Por porcentaje 
+	private Integer commission;
+	
+	// Limite maximo
+	private Integer maximumLimit;
+	
+	
+}

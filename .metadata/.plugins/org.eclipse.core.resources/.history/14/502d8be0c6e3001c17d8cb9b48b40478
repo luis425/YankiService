@@ -1,0 +1,5 @@
+package com.bootcamp.Yanki.repository;
+
+public class BankAccountRepository {
+
+}

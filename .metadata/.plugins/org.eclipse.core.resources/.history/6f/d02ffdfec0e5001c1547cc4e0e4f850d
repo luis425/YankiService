@@ -1,0 +1,21 @@
+package com.bootcamp.Yanki.model;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@ToString
+public class Bank {
+	
+	private String id;
+	 
+	private String code;
+	
+	private String bankName;
+	
+	private String directionMain;
+	
+	
+}
+

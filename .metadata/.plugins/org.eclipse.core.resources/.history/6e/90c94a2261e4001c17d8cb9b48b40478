@@ -1,0 +1,10 @@
+package com.bootcamp.Yanki.repository;
+ 
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository; 
+import org.springframework.stereotype.Repository;
+
+import com.bootcamp.Yanki.model.Yanki;
+ 
+@Repository
+public interface YankiRepository extends ReactiveMongoRepository<Yanki, String> {
+}

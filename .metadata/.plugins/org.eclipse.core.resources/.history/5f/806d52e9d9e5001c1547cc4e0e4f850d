@@ -1,0 +1,20 @@
+package com.bootcamp.Yanki.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bootcamp.Yanki.model.Transfer;
+import com.bootcamp.Yanki.repository.YankiTransferRepository;
+
+import reactor.core.publisher.Mono;
+
+public class TransferYankiService {
+
+	@Autowired
+	YankiTransferRepository yankiTransferRepository;
+	
+	public Mono<Transfer> createYankiTransfer(Transfer transferyanki) {
+		return yankiTransferRepository.save(transferyanki);
+	}
+	
+	
+}

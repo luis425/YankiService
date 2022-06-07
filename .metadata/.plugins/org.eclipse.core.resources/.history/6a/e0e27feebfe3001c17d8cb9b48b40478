@@ -1,0 +1,9 @@
+package com.bootcamp.Yanki.config;
+
+public class WebClientConfig {
+	@Bean 
+	public WebClient webClient() {
+	    return WebClient.create();
+	}
+	
+}

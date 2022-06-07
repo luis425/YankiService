@@ -1,0 +1,6 @@
+package com.bootcamp.Yanki.web.expose;
+
+@RestController
+public class YankiController {
+
+}

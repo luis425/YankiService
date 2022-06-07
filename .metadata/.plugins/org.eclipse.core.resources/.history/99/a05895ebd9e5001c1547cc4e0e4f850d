@@ -1,0 +1,23 @@
+package com.bootcamp.Yanki.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bootcamp.Yanki.model.Transfer;
+import com.bootcamp.Yanki.repository.YankiTransferRepository;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+public class TransferYankiService {
+
+	@Autowired
+	YankiTransferRepository yankiTransferRepository;
+	
+	public Mono<Transfer> createYankiTransfer(Transfer transferyanki) {
+		return yankiTransferRepository.save(transferyanki);
+	}
+	
+	public Flux<Transfer> getAccountYankibyphoneNumber(String phoneNumber) {
+		return movementsBankAccountsRepository.findAll().filter(x -> x.getBankAccounts().getCustomer().getCodeCustomer().equals(codeCustomer));
+	}
+}

@@ -1,0 +1,7 @@
+package com.bootcamp.Yanki.Service;
+
+import com.bootcamp.Yanki.model.Yunki;
+
+public interface YankiService {
+	String processCreateYankiAccount(Yunki transaction) throws InterruptedException;
+}

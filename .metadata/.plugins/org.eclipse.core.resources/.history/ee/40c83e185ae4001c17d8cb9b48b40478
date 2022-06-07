@@ -1,0 +1,11 @@
+package com.bootcamp.Yanki.Service;
+
+import com.bootcamp.Yanki.model.Yunki;
+
+import reactor.core.publisher.Mono;
+
+public interface YankiService {
+	
+	String processCreateYankiAccount(Yunki transaction) throws InterruptedException;
+	Mono<Yunki> createYanki(Yunki yanki);
+}

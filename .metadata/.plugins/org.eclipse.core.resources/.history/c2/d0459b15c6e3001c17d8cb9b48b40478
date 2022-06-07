@@ -1,0 +1,42 @@
+package com.bootcamp.Yanki.redis.Model;
+
+import org.springframework.data.redis.core.RedisHash;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@RedisHash("BankAccount")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
+public class BankAccountCache {
+
+	private String id;
+	
+	private TypeBankAccounts typeBankAccounts;
+	
+	private String numberAccount;
+	
+	// Clave de cuenta - Deberia incriptarse
+	private int keyAccount;
+	
+	// Monto Dispoible de la cuenta
+	private double availableBalanceAccount;
+	  
+	// Postman enviar 2022-05-16T08:55:17.688+00:00
+	@JsonFormat(pattern="dd-MM-yyyy" , timezone="GMT-05:00")
+	private Date dateLastBankAccount;
+	
+	// Estado 
+	private boolean statusAccount; 
+	
+	private Customer customer;
+	
+}

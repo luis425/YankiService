@@ -1,0 +1,5 @@
+package com.bootcamp.Yanki.api.client;
+
+public class BankAccountApiClient {
+
+}
